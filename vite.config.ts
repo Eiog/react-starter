@@ -1,24 +1,11 @@
 import { resolve } from 'node:path'
 import type { Plugin } from 'vite'
 import { defineConfig, loadEnv } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import vueJsx from '@vitejs/plugin-vue-jsx'
+import react from '@vitejs/plugin-react'
 import Unocss from 'unocss/vite'
-import Components from 'unplugin-vue-components/vite'
-import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import AutoImport from 'unplugin-auto-import/vite'
-import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import { VitePWA } from 'vite-plugin-pwa'
-import Markdown from 'vite-plugin-vue-markdown'
-import LinkAttributes from 'markdown-it-link-attributes'
-import Shiki from 'markdown-it-shiki'
-import Icons from 'unplugin-icons/vite'
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
-import DefineOptions from 'unplugin-vue-define-options/dist/vite'
-import Pages from 'vite-plugin-pages'
-import Layouts from 'vite-plugin-vue-layouts'
 import WebfontDownload from 'vite-plugin-webfont-dl'
-import Inspector from 'unplugin-vue-inspector/vite'
 import mockApp from './api'
 
 // https://vitejs.dev/config/
@@ -57,27 +44,9 @@ export default defineConfig(({ command, mode }) => {
   return {
     plugins: [
       mock(),
-      // https://github.com/hannoeru/vite-plugin-pages
-      Pages({
-        extensions: ['vue', 'md'],
-      }),
-      // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
-      Layouts(),
-      DefineOptions(),
-      createSvgIconsPlugin({
-        iconDirs: [resolve(process.cwd(), 'src/assets/icons')],
-        symbolId: 'icon-[dir]-[name]',
-      }),
-      vue(),
-      vueJsx(),
+      react(),
       // https://github.com/feat-agency/vite-plugin-webfont-dl
       WebfontDownload(),
-      // https://github.com/webfansplz/vite-plugin-vue-inspector
-      Inspector({
-        toggleButtonVisibility: 'never',
-      }),
-      Icons({ compiler: 'vue3' }),
-      // https://github.com/antfu/unplugin-auto-import
       AutoImport({
         /* options */
         include: [
@@ -105,53 +74,16 @@ export default defineConfig(({ command, mode }) => {
         dts: 'src/typings/auto-import.d.ts',
         vueTemplate: true,
       }),
-      // https://github.com/antfu/unplugin-vue-components
-      Components({
-        dirs: ['src/components', 'src/layouts'],
-        extensions: ['vue', 'md'],
-        deep: true,
-        include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
-        dts: 'src/typings/components.d.ts',
-        resolvers: [NaiveUiResolver()],
-      }),
-      // https://github.com/antfu/unocss
       // see unocss.config.ts for config
       Unocss(),
       // https://github.com/intlify/bundle-tools/tree/main/packages/unplugin-vue-i18n
-      VueI18nPlugin({
-        runtimeOnly: true,
-        compositionOnly: true,
-        fullInstall: true,
-        include: resolve(__dirname, './src/locales/**'),
-      }),
-      // https://github.com/antfu/vite-plugin-vue-markdown
-      Markdown({
-        wrapperClasses: 'prose prose-sm m-auto text-left',
-        headEnabled: true,
-        markdownItSetup(md) {
-          // https://prismjs.com/
-          md.use(Shiki, {
-            theme: {
-              light: 'vitesse-light',
-              dark: 'vitesse-dark',
-            },
-          })
-          md.use(LinkAttributes, {
-            matcher: (link: string) => /^https?:\/\//.test(link),
-            attrs: {
-              target: '_blank',
-              rel: 'noopener',
-            },
-          })
-        },
-      }),
       // https://github.com/antfu/vite-plugin-pwa
       VitePWA({
         registerType: 'autoUpdate',
         includeAssets: ['favicon.svg', 'safari-pinned-tab.svg'],
         manifest: {
-          name: 'vue3-starter',
-          short_name: 'vue3-starter',
+          name: 'react-starter',
+          short_name: 'react-starter',
           theme_color: '#ffffff',
           icons: [
             {
@@ -220,7 +152,6 @@ export default defineConfig(({ command, mode }) => {
     resolve: {
       alias: {
         '~': resolve(__dirname, './src'), // 路径别名
-        'vue-i18n': 'vue-i18n/dist/vue-i18n.runtime.esm-bundler.js',
       },
     },
   }

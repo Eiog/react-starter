@@ -5,12 +5,13 @@
     "module": "ESNext",
     "lib": [
       "ESNext",
-      "DOM"
+      "DOM",
+      "DOM.Iterable"
     ],
     "skipDefaultLibCheck": true, // 忽略库的默认声明文件的类型检查
     "strict": true, // 开启所有严格的类型检查
     "esModuleInterop": true, // 允许export=导出，由import from 导入
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "skipLibCheck": true, // 忽略所有的声明文件（ *.d.ts ）的类型检查
     "moduleResolution": "node", // 模块解析策略，ts默认用node的解析策略，即相对的方式导入
     "resolveJsonModule": true, // 解析json文件
@@ -24,21 +25,12 @@
       ]
     },
     "types": [
-      "unplugin-icons/types/vue",
-      "naive-ui/volar",
-      "vitest/globals",
-      "vite-plugin-svg-icons/client",
-      "vite-plugin-vue-layouts/client",
-      "@intlify/unplugin-vue-i18n/messages",
-      "@morev/vue-transitions/types/volar",
-      "unplugin-vue-define-options/macros-global"
     ]
   },
   "include": [
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
   ],
   "exclude": [
     "node_modules",
