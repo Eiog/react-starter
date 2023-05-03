@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react'
 import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import { VitePWA } from 'vite-plugin-pwa'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import WebfontDownload from 'vite-plugin-webfont-dl'
 import mockApp from './api'
 
@@ -45,30 +46,19 @@ export default defineConfig(({ command, mode }) => {
     plugins: [
       mock(),
       react(),
+      createSvgIconsPlugin({
+        iconDirs: [resolve(process.cwd(), 'src/assets/icons')],
+        symbolId: 'icon-[dir]-[name]',
+      }),
       // https://github.com/feat-agency/vite-plugin-webfont-dl
       WebfontDownload(),
       AutoImport({
         /* options */
         include: [
           /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
-          /\.vue$/,
-          /\.vue\?vue/, // .vue
         ],
         imports: [
-          'vue',
-          '@vueuse/core',
-          '@vueuse/head',
-          'pinia',
-          'vue-router',
-          'vue-i18n',
-          {
-            'naive-ui': [
-              'useDialog',
-              'useMessage',
-              'useNotification',
-              'useLoadingBar',
-            ],
-          },
+          'react',
         ],
         dirs: ['src/hooks', 'src/composables', 'src/stores', 'src/utils'],
         dts: 'src/typings/auto-import.d.ts',

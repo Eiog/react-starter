@@ -1,13 +1,11 @@
-import type { FC } from 'react'
-import { createElement } from 'react'
-interface Props {
-  name: string
-}
-const App: FC<Props> =(props) => {
+import Layout from '~/layouts/Layout'
+import { RouterEntry } from '~/components/RouterEntry'
+
+function App() {
   return (
-        <div>
-            Hello World!
-        </div>
+    <Layout>
+      <RouterEntry />
+    </Layout>
   )
 }
-export default createElement(App)
+export default App

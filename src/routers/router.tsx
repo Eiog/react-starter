@@ -1,13 +1,18 @@
-import type { ReactElement } from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import type { RouteObject } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom'
 import Index from '~/pages/Index'
+import About from '~/pages/About'
 
-export default function Router(): ReactElement {
-  return (
-    <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<Index />} />
-    </Routes>
-    </BrowserRouter>
-  )
-}
+const routes: RouteObject[] = [
+  {
+    path: '/',
+    element: <Index/>,
+  },
+  {
+    path: '/about',
+    element: <About/>,
+  },
+]
+const router = createBrowserRouter(routes)
+
+export default router
