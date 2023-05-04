@@ -1,12 +1,16 @@
 import { resolve } from 'node:path'
 import type { Plugin } from 'vite'
 import { defineConfig, loadEnv } from 'vite'
-import react from '@vitejs/plugin-react'
+import react from '@vitejs/plugin-react-swc'
 import Unocss from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import WebfontDownload from 'vite-plugin-webfont-dl'
+import ReactInspector from 'vite-plugin-react-inspector'
+import { webUpdateNotice } from '@plugin-web-update-notification/vite'
+import Pages from 'vite-plugin-pages'
+
 import mockApp from './api'
 
 // https://vitejs.dev/config/
@@ -45,6 +49,7 @@ export default defineConfig(({ command, mode }) => {
   return {
     plugins: [
       mock(),
+      Pages(),
       react(),
       createSvgIconsPlugin({
         iconDirs: [resolve(process.cwd(), 'src/assets/icons')],
@@ -52,6 +57,10 @@ export default defineConfig(({ command, mode }) => {
       }),
       // https://github.com/feat-agency/vite-plugin-webfont-dl
       WebfontDownload(),
+      ReactInspector(),
+      webUpdateNotice({
+        logVersion: true,
+      }),
       AutoImport({
         /* options */
         include: [
