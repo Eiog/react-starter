@@ -68,6 +68,9 @@ export default defineConfig(({ command, mode }) => {
         ],
         imports: [
           'react',
+          'react-i18next',
+          'react-router',
+          'react-router-dom',
         ],
         dirs: ['src/hooks', 'src/composables', 'src/stores', 'src/utils'],
         dts: 'src/typings/auto-import.d.ts',

@@ -141,6 +141,9 @@ devDependencies:
   sass:
     specifier: ^1.62.1
     version: 1.62.1
+  simple-zustand-devtools:
+    specifier: ^1.1.0
+    version: 1.1.0(@types/react-dom@18.2.1)(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0)(zustand@4.3.7)
   taze:
     specifier: ^0.9.1
     version: registry.npmmirror.com/taze@0.9.1
@@ -4650,6 +4653,22 @@ packages:
       object-inspect: 1.12.3
     dev: true
 
+  /simple-zustand-devtools@1.1.0(@types/react-dom@18.2.1)(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0)(zustand@4.3.7):
+    resolution: {integrity: sha512-Axfcfr9L3YL3kto7aschCQLY2VUlXXMnIVtaTe9Y0qWbNmPsX/y7KsNprmxBZoB0pww5ZGs1u/ohcrvQ3tE6jA==}
+    peerDependencies:
+      '@types/react': '>=18.0.0'
+      '@types/react-dom': '>=18.0.0'
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
+      zustand: '>=1.0.2'
+    dependencies:
+      '@types/react': 18.0.28
+      '@types/react-dom': 18.2.1
+      react: registry.npmmirror.com/react@18.2.0
+      react-dom: registry.npmmirror.com/react-dom@18.2.0(react@18.2.0)
+      zustand: registry.npmmirror.com/zustand@4.3.7(react@18.2.0)
+    dev: true
+
   /slash@3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
@@ -5344,7 +5363,7 @@ packages:
     dev: true
 
   github.com/isaacs/cliui/9f97090165675fdda63a79c29bc36bb1033506b0:
-    resolution: {commit: 9f97090165675fdda63a79c29bc36bb1033506b0, repo: git+ssh://git@github.com/isaacs/cliui.git, type: git}
+    resolution: {tarball: https://codeload.github.com/isaacs/cliui/tar.gz/9f97090165675fdda63a79c29bc36bb1033506b0}
     name: cliui
     version: 8.0.1
     engines: {node: '>=12'}
@@ -16317,7 +16336,6 @@ packages:
       loose-envify: registry.npmmirror.com/loose-envify@1.4.0
       react: registry.npmmirror.com/react@18.2.0
       scheduler: registry.npmmirror.com/scheduler@0.23.0
-    dev: false
 
   registry.npmmirror.com/react-fast-compare@3.2.1:
     resolution: {integrity: sha512-xTYf9zFim2pEif/Fw16dBiXpe0hoy5PxcD8+OwBnTtNLfIm3g6WxhKNurY+6OmdH1u6Ta/W/Vl6vjbYP1MFnDg==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/react-fast-compare/-/react-fast-compare-3.2.1.tgz}
@@ -16462,7 +16480,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: registry.npmmirror.com/loose-envify@1.4.0
-    dev: false
 
   registry.npmmirror.com/read-package-json-fast@2.0.3:
     resolution: {integrity: sha512-W/BKtbL+dUjTuRL2vziuYhp76s5HZ9qQhd/dKfWIZveD0O40453QNyZhC0e63lqZrAQ4jiOapVoeJ7JrszenQQ==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/read-package-json-fast/-/read-package-json-fast-2.0.3.tgz}
@@ -16786,7 +16803,6 @@ packages:
     version: 0.23.0
     dependencies:
       loose-envify: registry.npmmirror.com/loose-envify@1.4.0
-    dev: false
 
   registry.npmmirror.com/scule@1.0.0:
     resolution: {integrity: sha512-4AsO/FrViE/iDNEPaAQlb77tf0csuq27EsVpy6ett584EcRTp6pTDLoGWVxCD77y5iU5FauOvhsI4o1APwPoSQ==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/scule/-/scule-1.0.0.tgz}
@@ -17999,7 +18015,6 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       react: registry.npmmirror.com/react@18.2.0
-    dev: false
 
   registry.npmmirror.com/use@3.1.1:
     resolution: {integrity: sha512-cwESVXlO3url9YWlFW/TA9cshCEhtu7IKJ/p5soJ/gGpj7vbvFrAY/eIioQ6Dw23KjZhYgiIo8HOs1nQ2vr/oQ==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/use/-/use-3.1.1.tgz}
@@ -18594,4 +18609,3 @@ packages:
     dependencies:
       react: registry.npmmirror.com/react@18.2.0
       use-sync-external-store: registry.npmmirror.com/use-sync-external-store@1.2.0(react@18.2.0)
-    dev: false
