@@ -1,3 +1,7 @@
 {
-  "extends": "@eiog/eslint-config-react"
+  "extends": "@eiog/eslint-config-react",
+  "rules": {
+    // your overrides
+    "react-hooks/rules-of-hooks": "warn",
+  }
 }
